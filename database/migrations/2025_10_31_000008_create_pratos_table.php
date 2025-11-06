@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pratos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_prato');
+            $table->string('nome', 100);
+            $table->text('descricao')->nullable();
+            $table->decimal('preco', 10, 2); 
             $table->timestamps();
         });
     }

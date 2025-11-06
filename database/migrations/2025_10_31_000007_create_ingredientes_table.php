@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cardapios', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ingredientes', function (Blueprint $table) {
+            $table->bigIncrements('id_ingrediente');
+            $table->string('nome', 100);
+            $table->string('un_medida', 20);
+            $table->decimal('estoque', 10, 2)->default(0);
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cardapios');
+        Schema::dropIfExists('ingredientes');
     }
 };
