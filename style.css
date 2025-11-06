@@ -1,0 +1,784 @@
+/* ========================
+   FONTES
+======================== */
+@font-face {
+    font-family: 'ContaxBold';
+    src: url('CONTAX PRO 75 BOLD REGULAR.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'ContaxRegular';
+    src: url('CONTAX PRO 55.TTF') format('truetype');
+}
+
+/* ========================
+   CORES PRINCIPAIS
+======================== */
+:root {
+    --azul-escuro: #0b1d33;
+    --azul-claro: #102846;
+    --dourado: #d4af37;
+    --branco: #f9f9f9;
+    --cinza: #a8a8a8;
+}
+
+/* ========================
+   RESETAÇÃO
+======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ContaxRegular', sans-serif;
+    background-color: var(--branco);
+    color: #222;
+}
+
+/* ========================
+   CABEÇALHO
+======================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(11, 29, 51, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--branco);
+    font-family: 'ContaxRegular';
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--dourado);
+}
+
+/* ========================
+   CARROSSEL
+======================== */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* ajusta as imagens cortando o excesso */
+    flex-shrink: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== TEXTO DO CARROSSEL ====== */
+.overlay h1 {
+    font-family: 'ContaxBold', sans-serif; /* usa CONTAX PRO 75 BOLD REGULAR */
+    font-size: 3rem;
+    color: var(--branco);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* ========================
+   DECORAÇÃO DE TÍTULO
+======================== */
+.decorated-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.gold-line {
+    width: 5px;
+    height: 80px;
+    background-color: var(--dourado);
+    border-radius: 4px;
+}
+
+/* ========================
+   SOBRE O RESTAURANTE
+======================== */
+.sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px;
+    background-color: var(--branco);
+}
+
+.sobre-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    gap: 80px;
+}
+
+.sobre-titulo h2,
+.decorated-title h2 {
+    font-family: 'ContaxBold';
+    color: var(--azul-escuro);
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+}
+
+.sobre-texto {
+    flex: 2;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* ========================
+   LOCALIZAÇÃO
+======================== */
+.localizacao {
+    background-color: var(--azul-claro);
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--branco);
+}
+
+.local-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    gap: 80px;
+}
+
+.local-info h2 {
+    font-family: 'ContaxBold';
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    color: var(--dourado);
+}
+
+.local-info p {
+    font-family: 'ContaxRegular';
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.local-mapa {
+    flex: 2;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================
+   RODAPÉ
+======================== */
+footer {
+    background-color: var(--azul-escuro);
+    border-top: 3px solid var(--dourado);
+    color: var(--branco);
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-container img {
+    height: 30px;
+}
+
+.footer-container p {
+    font-family: 'ContaxRegular';
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* ========================
+   RESPONSIVIDADE
+======================== */
+@media (max-width: 900px) {
+    .sobre-container, .local-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gold-line {
+        display: none;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .overlay h1 {
+        font-size: 2.2rem;
+        padding: 0 20px;
+    }
+}
+
+/* ========================
+   CATEGORIAS DO CARDÁPIO
+======================== */
+.categoria {
+    max-width: 1100px;
+    margin: 120px auto;
+    padding: 0 20px;
+}
+
+.categoria-titulo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.categoria-titulo h2 {
+    font-family: 'ContaxBold';
+    font-size: 2.2rem; /* destaque sem exagero */
+    color: var(--azul-escuro);
+    letter-spacing: 1px;
+}
+
+.categoria-titulo p {
+    font-family: 'ContaxRegular';
+    font-size: 1.15rem; /* levemente maior que texto comum */
+    color: var(--cinza);
+    margin-top: 5px;
+    line-height: 1.6;
+}
+
+/* ========================
+   PRATOS
+======================== */
+.prato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+    gap: 60px;
+}
+
+.prato-info {
+    flex: 1;
+}
+
+.prato-info h3 {
+    font-family: 'ContaxBold';
+    font-size: 1.35rem; /* menor que a categoria */
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.prato-info .descricao {
+    font-family: 'ContaxRegular';
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.prato-info .ingredientes {
+    font-family: 'ContaxRegular';
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.prato-info .preco {
+    font-family: 'ContaxBold';
+    font-size: 1.05rem;
+    color: var(--dourado);
+}
+
+.prato-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.prato-img img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVIDADE DO CARDÁPIO */
+@media (max-width: 900px) {
+    .prato {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .categoria-titulo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .categoria-titulo h2 {
+        font-size: 1.9rem;
+    }
+
+    .categoria-titulo p {
+        font-size: 1rem;
+    }
+
+    .prato-info h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ========================
+   LOGIN FUNCIONÁRIOS (SIMBÓLICO)
+======================== */
+.login-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, var(--azul-escuro), var(--azul-claro));
+    padding-top: 100px;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 50px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-container h2 {
+    font-family: 'ContaxBold';
+    color: var(--azul-escuro);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container label {
+    text-align: left;
+    font-family: 'ContaxRegular';
+    font-size: 0.9rem;
+    color: var(--azul-escuro);
+}
+
+.login-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'ContaxRegular';
+}
+
+.login-container button {
+    background-color: var(--dourado);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'ContaxBold';
+    color: var(--azul-escuro);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #f5d873;
+}
+
+
+/* ========================
+   PAINEL DO FUNCIONÁRIO
+======================== */
+.painel-funcionario {
+    min-height: 100vh;
+    background-color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px 20px 80px;
+    color: var(--azul-escuro);
+}
+
+.painel-funcionario h2 {
+    font-family: 'ContaxBold';
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.painel-funcionario p {
+    font-family: 'ContaxRegular';
+    margin-bottom: 50px;
+    font-size: 1rem;
+}
+
+.painel-opcoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.painel-opcoes a {
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'ContaxBold';
+    transition: all 0.3s ease;
+}
+
+.painel-opcoes a:hover {
+    background-color: var(--dourado);
+    color: var(--azul-escuro);
+    transform: translateY(-5px);
+}
+
+/* ========================
+   PAINEL DE GERENCIAMENTO
+======================== */
+.painel-gerenciamento {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px;
+    color: var(--azul-escuro);
+}
+
+.painel-container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.painel-container h2 {
+    font-family: 'ContaxBold';
+    font-size: 2rem;
+    margin: 30px 0 60px;
+    color: var(--azul-escuro);
+    letter-spacing: 1px;
+}
+
+.painel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.painel-card {
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    text-decoration: none;
+    padding: 30px 20px;
+    border-radius: 12px;
+    font-family: 'ContaxBold';
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.painel-card:hover {
+    background-color: var(--dourado);
+    color: var(--azul-escuro);
+    transform: translateY(-6px);
+    box-shadow: 0 5px 25px rgba(212, 175, 55, 0.3);
+}
+
+@media (max-width: 700px) {
+    .painel-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .painel-card {
+        font-size: 1rem;
+        padding: 25px;
+    }
+}
+
+/* Alinha a linha dourada e o título do painel de gerenciamento */
+.painel-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Cabeçalho do painel: linha + título na mesma linha */
+.painel-header {
+    display: flex;
+    align-items: center;      /* alinha verticalmente a linha e o título */
+    justify-content: center;  /* centraliza o grupo horizontalmente */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* linha dourada vertical ao lado do título */
+.painel-header .gold-line {
+    width: 6px;
+    height: 64px;
+    background-color: var(--dourado);
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* título, agora ao lado direito da linha */
+.painel-header h2 {
+    font-family: 'ContaxBold';
+    font-size: 2rem;
+    color: var(--azul-escuro);
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: left;
+}
+
+/* mantendo espaçamento anterior entre título e grid */
+.painel-container .painel-grid {
+    margin-top: 40px;
+}
+
+/* RESPONSIVO: empilha verticalmente em telas menores */
+@media (max-width: 700px) {
+    .painel-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .painel-header .gold-line {
+        width: 40px;
+        height: 6px; /* transforma em linha horizontal em mobile */
+        border-radius: 3px;
+    }
+
+    .painel-header h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .painel-container .painel-grid {
+        margin-top: 24px;
+    }
+}
+
+.painel-header h1 {
+  font-family: 'ContaxBold';
+  font-size: 2rem;
+  color: var(--azul-escuro);
+  letter-spacing: 1px;
+}
+
+/* ========================
+   TABELAS DE GERENCIAMENTO
+======================== */
+.tabela-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    overflow-x: auto;
+}
+
+.tabela-pratos,
+.tabela-generica {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--branco);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabela-pratos thead tr,
+.tabela-generica thead tr {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    text-align: left;
+    font-family: 'ContaxBold';
+}
+
+.tabela-pratos th,
+.tabela-pratos td,
+.tabela-generica th,
+.tabela-generica td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    font-size: 0.95rem;
+}
+
+.tabela-pratos tbody tr:hover,
+.tabela-generica tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.12);
+    transition: 0.2s;
+}
+
+.tabela-pratos tbody tr:last-child td,
+.tabela-generica tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* BOTOES DE AÇÃO (ADICIONAR / EDITAR / REMOVER / VOLTAR) */
+.acoes-gerenciar {
+    max-width: 1200px;
+    margin: 30px auto 80px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.acoes-gerenciar button {
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: 'ContaxBold';
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 160px;
+}
+
+.acoes-gerenciar button:hover {
+    background-color: var(--dourado);
+    color: var(--azul-escuro);
+    transform: translateY(-3px);
+}
+
+/* MODAL PADRONIZADO */
+.modal-unificado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-unificado .conteudo {
+    background-color: var(--branco);
+    padding: 25px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-unificado h2 {
+    font-family: 'ContaxBold';
+    color: var(--azul-escuro);
+    margin-bottom: 15px;
+}
+
+#camposDinamicos label {
+    display: block;
+    margin-top: 12px;
+    font-family: 'ContaxRegular';
+    color: var(--azul-escuro);
+    font-size: 0.9rem;
+}
+
+#camposDinamicos input,
+#camposDinamicos textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'ContaxRegular';
+}
+
+.modal-unificado .botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-unificado .salvar {
+    background-color: var(--dourado);
+    color: var(--azul-escuro);
+}
+
+.modal-unificado .cancelar {
+    background-color: #ccc;
+    color: #000;
+}
+.modal-unificado button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'ContaxBold';
+    cursor: pointer;
+}
+.modal-unificado button:hover {
+    opacity: 0.85;
+}
