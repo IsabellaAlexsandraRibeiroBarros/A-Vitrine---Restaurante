@@ -14,7 +14,6 @@
       <img src="{{ asset('assets/img/DVITRINNE2.png') }}" alt="Logo">
     </a>
   </div>
-
   <nav>
     <ul class="nav-links">
       <li><a href="{{ route('cardapio') }}">Cardápio</a></li>
@@ -30,27 +29,25 @@
   </section>
 
   <section class="form-container">
-  <form action="{{ route('pratos.store') }}" method="POST">
-  @csrf
+    <form action="{{ route('pratos.store') }}" method="POST">
+      @csrf
+      <label>Nome:</label>
+      <input type="text" name="nome" required>
 
-  <label>Nome:</label>
-  <input type="text" name="nome" required>
+      <label>Descrição:</label>
+      <textarea name="descricao"></textarea>
 
-  <label>Descrição:</label>
-  <textarea name="descricao"></textarea>
+      <label>Valor (R$):</label>
+      <input type="number" name="valor" step="0.01" required>
 
-  <label>Valor (R$):</label>
-  <input type="number" name="valor" step="0.01" required>
+      <label>Composição:</label>
+      <textarea name="composicao"></textarea>
 
-  <label>Composição (ingredientes e quantidades):</label>
-  <textarea name="composicao"></textarea>
-
-  <div class="botoes">
-    <button type="submit" class="salvar">Salvar</button>
-    <a href="{{ route('pratos.index') }}"><button type="button" class="cancelar">Cancelar</button></a>
-  </div>
-</form>
-
+      <div class="botoes">
+        <button type="submit" class="salvar">Salvar</button>
+        <a href="{{ route('pratos.index') }}"><button type="button" class="cancelar">Cancelar</button></a>
+      </div>
+    </form>
   </section>
 </main>
 

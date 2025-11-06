@@ -39,7 +39,6 @@
           <th>Nome</th>
           <th>Telefone</th>
           <th>Email</th>
-          <th>Mesa Associada</th>
           <th colspan="2">Ações</th>
         </tr>
       </thead>
@@ -51,7 +50,6 @@
           <td>{{ $c->nome }}</td>
           <td>{{ $c->telefone }}</td>
           <td>{{ $c->email }}</td>
-          <td>{{ $c->mesa ?? '-' }}</td>
 
           <!-- Botão Editar -->
           <td>

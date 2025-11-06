@@ -54,8 +54,7 @@
       <label for="telefone">Telefone:</label>
       <input type="text" id="telefone" name="telefone" value="{{ $cliente->telefone ?? '' }}">
 
-      <label for="pontos">Pontos:</label>
-      <input type="number" id="pontos" name="pontos" value="{{ $cliente->pontos ?? 0 }}">
+
 
       <div class="botoes">
         <button type="submit" class="btn-editar">Salvar Alterações</button>

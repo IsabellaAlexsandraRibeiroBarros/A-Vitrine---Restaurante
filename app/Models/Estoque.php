@@ -15,6 +15,6 @@ class Estoque extends Model
         'quantidade',
         'unidade',
         'valor_unitario',
-        'status'
+        'status',
     ];
 }

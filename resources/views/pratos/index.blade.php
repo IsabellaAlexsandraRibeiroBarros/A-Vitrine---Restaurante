@@ -30,6 +30,10 @@
   </section>
 
   <section class="tabela-container">
+    @if (session('success'))
+      <div class="alerta-sucesso">{{ session('success') }}</div>
+    @endif
+
     <table class="tabela-pratos">
       <thead>
         <tr>
@@ -37,39 +41,35 @@
           <th>Nome do Prato</th>
           <th>Descrição</th>
           <th>Valor (R$)</th>
-          <th>Composição (Ingredientes e Quantidades)</th>
+          <th>Composição</th>
           <th colspan="2">Ações</th>
         </tr>
       </thead>
-
       <tbody>
-  @foreach ($pratos as $p)
-  <tr>
-    <td>{{ $p->id }}</td>
-    <td>{{ $p->nome }}</td>
-    <td>{{ $p->descricao }}</td>
-    <td>{{ number_format($p->valor, 2, ',', '.') }}</td>
-    <td>{{ $p->composicao }}</td>
-
-    <td>
-  <a href="{{ route('pratos.edit', ['id' => $p->id]) }}">
-    <button class="btn-editar">Editar</button>
-  </a>
-</td>
-
-<td>
-  <form action="{{ route('pratos.destroy', ['id' => $p->id]) }}" method="POST">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn-excluir" onclick="return confirm('Deseja excluir este prato?')">
-      Excluir
-    </button>
-  </form>
-</td>
-
-  </tr>
-  @endforeach
-</tbody>
+        @forelse ($pratos as $p)
+        <tr>
+          <td>{{ $p->id }}</td>
+          <td>{{ $p->nome }}</td>
+          <td>{{ $p->descricao }}</td>
+          <td>{{ number_format($p->valor, 2, ',', '.') }}</td>
+          <td>{{ $p->composicao }}</td>
+          <td>
+            <a href="{{ route('pratos.edit', $p->id) }}"><button class="btn-editar">Editar</button></a>
+          </td>
+          <td>
+            <form action="{{ route('pratos.destroy', $p->id) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn-excluir" onclick="return confirm('Deseja excluir este prato?')">Excluir</button>
+            </form>
+          </td>
+        </tr>
+        @empty
+        <tr>
+          <td colspan="7" class="text-center">Nenhum prato cadastrado.</td>
+        </tr>
+        @endforelse
+      </tbody>
     </table>
   </section>
 

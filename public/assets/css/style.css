@@ -1293,3 +1293,50 @@ select#status {
     border-color: #d4af37;
     box-shadow: 0 0 8px rgba(0, 24, 101, 0.6);
   }
+
+  /* ==== SELECT BONITO D'VITRINNE ==== */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .select-status {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    font-size: 16px;
+    border: 2px solid #001f3f; /* azul escuro */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #001f3f;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* seta dourada personalizada */
+  .select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #b8860b; /* dourado */
+    font-size: 14px;
+    pointer-events: none;
+  }
+  
+  .select-status:hover {
+    background-color: #fff;
+    border-color: #b8860b; /* dourado */
+    box-shadow: 0 0 6px rgba(184, 134, 11, 0.3);
+  }
+  
+  .select-status:focus {
+    outline: none;
+    border-color: #b8860b;
+    box-shadow: 0 0 6px rgba(184, 134, 11, 0.6);
+  }
+  

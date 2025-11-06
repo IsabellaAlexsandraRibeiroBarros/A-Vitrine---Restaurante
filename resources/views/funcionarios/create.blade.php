@@ -30,24 +30,34 @@
   </section>
 
   <section class="form-container">
+    {{-- ✅ O formulário deve usar o método POST e apontar para a rota correta --}}
     <form action="{{ route('funcionarios.store') }}" method="POST">
       @csrf
 
-      <label>Nome:</label>
-      <input type="text" name="nome" required>
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite o nome do funcionário" required>
+      </div>
 
-      <label>Cargo:</label>
-      <input type="text" name="cargo" required>
+      <div class="form-group">
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" placeholder="Ex: Garçom, Cozinheiro..." required>
+      </div>
 
-      <label>Email:</label>
-      <input type="email" name="email" required>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+      </div>
 
-      <label>Telefone:</label>
-      <input type="text" name="telefone" required>
+      <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+      </div>
 
-      <div class="botoes">
-        <button type="submit" class="salvar">Salvar</button>
-        <a href="{{ route('funcionarios.index') }}"><button type="button" class="cancelar">Cancelar</button></a>
+      {{-- ✅ Botões corretos --}}
+      <div class="botoes" style="margin-top: 20px;">
+        <button type="submit" class="salvar">Adicionar Funcionário</button>
+        <a href="{{ route('funcionarios.index') }}" class="cancelar">Voltar</a>
       </div>
     </form>
   </section>

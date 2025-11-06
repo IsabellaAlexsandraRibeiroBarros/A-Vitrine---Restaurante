@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Http\Controllers\Controller;
 use App\Models\Funcionario;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class FuncionariosController extends Controller
 {
@@ -22,14 +22,21 @@ class FuncionariosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required|max:100',
+            'nome' => 'required|max:255',
             'cargo' => 'required|max:50',
             'email' => 'required|email|max:100',
             'telefone' => 'required|max:20',
         ]);
 
-        Funcionario::create($request->all());
-        return redirect()->route('funcionarios.index')->with('success', 'Funcionário cadastrado com sucesso!');
+        Funcionario::create([
+            'nome' => $request->nome,
+            'cargo' => $request->cargo,
+            'email' => $request->email,
+            'telefone' => $request->telefone,
+        ]);
+
+        return redirect()->route('funcionarios.index')
+                         ->with('success', 'Funcionário cadastrado com sucesso!');
     }
 
     public function edit($id)
@@ -40,14 +47,24 @@ class FuncionariosController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nome' => 'required|max:255',
+            'cargo' => 'required|max:50',
+            'email' => 'required|email|max:100',
+            'telefone' => 'required|max:20',
+        ]);
+
         $funcionario = Funcionario::findOrFail($id);
-        $funcionario->update($request->all());
-        return redirect()->route('funcionarios.index')->with('success', 'Funcionário atualizado com sucesso!');
+        $funcionario->update($request->only(['nome', 'cargo', 'email', 'telefone']));
+
+        return redirect()->route('funcionarios.index')
+                         ->with('success', 'Funcionário atualizado com sucesso!');
     }
 
     public function destroy($id)
     {
         Funcionario::destroy($id);
-        return redirect()->route('funcionarios.index')->with('success', 'Funcionário removido com sucesso!');
+        return redirect()->route('funcionarios.index')
+                         ->with('success', 'Funcionário removido com sucesso!');
     }
 }

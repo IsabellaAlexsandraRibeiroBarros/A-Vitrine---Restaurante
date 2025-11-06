@@ -47,7 +47,12 @@
       <input type="number" name="valor_unitario" step="0.01" value="{{ $item->valor_unitario }}" required>
 
       <label>Status:</label>
-      <input type="text" name="status" value="{{ $item->status }}" required>
+<div class="select-wrapper">
+  <select name="status" required class="select-status">
+    <option value="Disponível" {{ $item->status == 'Disponível' ? 'selected' : '' }}>Disponível</option>
+    <option value="Indisponível" {{ $item->status == 'Indisponível' ? 'selected' : '' }}>Indisponível</option>
+  </select>
+</div>
 
       <div class="botoes">
         <button type="submit" class="salvar">Salvar Alterações</button>

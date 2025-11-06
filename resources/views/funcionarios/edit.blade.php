@@ -48,7 +48,9 @@
 
       <div class="botoes">
         <button type="submit" class="salvar">Salvar Alterações</button>
-        <a href="{{ route('funcionarios.index') }}"><button type="button" class="cancelar">Cancelar</button></a>
+        <a href="{{ route('funcionarios.index') }}">
+          <button type="button" class="cancelar">Cancelar</button>
+        </a>
       </div>
     </form>
   </section>

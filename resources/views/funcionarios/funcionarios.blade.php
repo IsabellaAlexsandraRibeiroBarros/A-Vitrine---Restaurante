@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerenciar Funcionários - D'VITRINNE</title>
+  <title>Funcionários - D'VITRINNE</title>
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
@@ -11,7 +11,7 @@
 <header>
   <div class="logo">
     <a href="{{ route('home') }}">
-      <img src="{{ asset('assets/img/DVITRINNE2.png') }}" alt="Logo">
+      <img src="{{ asset('assets/img/DVITRINNE2.png') }}" alt="Logo D'VITRINNE">
     </a>
   </div>
 
@@ -49,18 +49,12 @@
           <td>{{ $f->cargo }}</td>
           <td>{{ $f->email }}</td>
           <td>{{ $f->telefone }}</td>
-
-          <td>
-            <a href="{{ route('funcionarios.edit', $f->id) }}">
-              <button class="btn-editar">Editar</button>
-            </a>
-          </td>
-
+          <td><a href="{{ route('funcionarios.edit', $f->id) }}"><button class="btn-editar">Editar</button></a></td>
           <td>
             <form action="{{ route('funcionarios.destroy', $f->id) }}" method="POST">
               @csrf
               @method('DELETE')
-              <button type="submit" class="btn-excluir" onclick="return confirm('Deseja excluir este funcionário?')">Excluir</button>
+              <button type="submit" class="btn-excluir" onclick="return confirm('Excluir funcionário?')">Excluir</button>
             </form>
           </td>
         </tr>
@@ -77,7 +71,7 @@
 
 <footer>
   <div class="footer-container">
-    <img src="{{ asset('assets/img/DVITRINNE2.png') }}" alt="Logo">
+    <img src="{{ asset('assets/img/DVITRINNE2.png') }}" alt="Logo D'VITRINNE">
     <p>© 2025 D'VITRINNE<br>Todos os direitos reservados.</p>
   </div>
 </footer>

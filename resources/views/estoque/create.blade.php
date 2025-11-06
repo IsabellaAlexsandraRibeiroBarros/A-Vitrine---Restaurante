@@ -37,7 +37,7 @@
       <input type="text" name="item" required>
 
       <label>Quantidade:</label>
-      <input type="number" name="quantidade" step="0.01" required>
+      <input type="number" name="quantidade" step="1" required>
 
       <label>Unidade:</label>
       <input type="text" name="unidade" required>
@@ -46,11 +46,19 @@
       <input type="number" name="valor_unitario" step="0.01" required>
 
       <label>Status:</label>
-      <input type="text" name="status" required>
+<div class="select-wrapper">
+  <select name="status" required class="select-status">
+    <option value="Disponível">Disponível</option>
+    <option value="Indisponível">Indisponível</option>
+  </select>
+</div>
+
 
       <div class="botoes">
         <button type="submit" class="salvar">Salvar</button>
-        <a href="{{ route('estoque.index') }}"><button type="button" class="cancelar">Cancelar</button></a>
+        <a href="{{ route('estoque.index') }}">
+          <button type="button" class="cancelar">Cancelar</button>
+        </a>
       </div>
     </form>
   </section>
