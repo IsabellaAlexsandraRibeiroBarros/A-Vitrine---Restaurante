@@ -52,8 +52,6 @@
       <label>Telefone:</label>
       <input type="text" name="telefone">
 
-      <label>Pontos:</label>
-      <input type="number" name="pontos" value="0">
 
       <div class="botoes">
         <button type="submit" class="salvar">Salvar</button>
