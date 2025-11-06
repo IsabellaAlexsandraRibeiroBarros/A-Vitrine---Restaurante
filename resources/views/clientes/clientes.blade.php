@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerenciar Estoque - D'VITRINNE</title>
+  <title>Gerenciar Clientes - D'VITRINNE</title>
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 </head>
-<body>
+
+<body class="pagina-gerenciamento">
+
 <header>
   <div class="logo">
-    <a href="{{ route('home') }}"><img src="{{ asset('assets/img/DVITRINNE2.png') }}" alt="Logo"></a>
+    <a href="{{ route('home') }}">
+      <img src="{{ asset('assets/img/DVITRINNE2.png') }}" alt="Logo">
+    </a>
   </div>
+
   <nav>
     <ul class="nav-links">
       <li><a href="{{ route('cardapio') }}">Cardápio</a></li>
@@ -20,9 +25,10 @@
 </header>
 
 <main class="painel-geral">
+
   <section class="painel-header">
     <div class="gold-line"></div>
-    <h1>GERENCIAR ESTOQUE</h1>
+    <h1>GERENCIAR CLIENTES</h1>
   </section>
 
   <section class="tabela-container">
@@ -30,31 +36,57 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Item</th>
-          <th>Quantidade</th>
-          <th>Unidade</th>
-          <th>Valor Unitário (R$)</th>
-          <th>Status</th>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Email</th>
+          <th>Mesa Associada</th>
+          <th colspan="2">Ações</th>
         </tr>
       </thead>
+
       <tbody>
-        <tr><td>1</td><td>Guardanapos</td><td>500</td><td>un</td><td>0,15</td><td>Adequado</td></tr>
-        <tr><td>2</td><td>Copos de vidro</td><td>12</td><td>un</td><td>4,50</td><td>Baixo</td></tr>
+        @foreach ($clientes as $c)
+        <tr>
+          <td>{{ $c->id_cliente }}</td>
+          <td>{{ $c->nome }}</td>
+          <td>{{ $c->telefone }}</td>
+          <td>{{ $c->email }}</td>
+          <td>{{ $c->mesa ?? '-' }}</td>
+
+          <!-- Botão Editar -->
+          <td>
+            <a href="{{ route('clientes.edit', $c->id_cliente) }}">
+              <button>Editar</button>
+            </a>
+          </td>
+
+          <!-- Botão Excluir -->
+          <td>
+            <form action="{{ route('clientes.destroy', $c->id_cliente) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" onclick="return confirm('Deseja excluir este cliente?')">
+                Excluir
+              </button>
+            </form>
+          </td>
+        </tr>
+        @endforeach
       </tbody>
     </table>
   </section>
 
   <section class="acoes-gerenciar">
-    <button id="editarEstoque">Editar Item</button>
-    <button id="adicionarEstoque">Adicionar Item</button>
-    <button id="removerEstoque">Remover Item</button>
+    <a href="{{ route('clientes.create') }}"><button>Adicionar Cliente</button></a>
     <button onclick="window.location.href='{{ route('area.funcionario') }}'">Voltar</button>
   </section>
+
 </main>
 
+<!-- Modal (mantido) -->
 <div id="modalUnificado" class="modal-unificado">
   <div class="conteudo">
-    <h2 id="modalTitulo">Adicionar Item ao Estoque</h2>
+    <h2 id="modalTitulo">Adicionar Cliente</h2>
     <form id="formModal">
       <div id="camposDinamicos"></div>
       <div class="botoes">
@@ -73,7 +105,6 @@
 </footer>
 
 <script src="{{ asset('assets/js/script.js') }}"></script>
-<body class="pagina-gerenciamento">
 
 </body>
 </html>

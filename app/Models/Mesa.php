@@ -6,10 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mesa extends Model
 {
+    protected $primaryKey = 'id_mesa';
     protected $fillable = ['numero', 'status'];
-
-    public function pedidos()
-    {
-        return $this->hasMany(Pedido::class);
-    }
+    public $timestamps = false;
 }

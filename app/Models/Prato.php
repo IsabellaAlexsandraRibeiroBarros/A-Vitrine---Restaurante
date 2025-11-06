@@ -6,17 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prato extends Model
 {
-    protected $fillable = [
-        'nome', 'descricao', 'preco'
-    ];
+    // Se a tabela usar a PK padrão "id", você NÃO precisa definir $primaryKey.
+    // Caso tenha definido antes como 'id_prato', remova-a ou defina como 'id'.
 
-     public function ingredientes()
-    {
-        return $this->belongsToMany(Ingrediente::class)->withPivot('quantidade');
-    }
+    // protected $primaryKey = 'id_prato'; // REMOVA ou comente esta linha
+    // se preferir explicitar:
+    protected $primaryKey = 'id';
 
-    public function pedidos()
-    {
-        return $this->belongsToMany(Pedido::class)->withPivot('quantidade');
-    }
+    protected $fillable = ['nome', 'descricao', 'valor', 'composicao'];
+
+    // Se sua tabela tem created_at/updated_at mantenha true (padrão).
+    public $timestamps = true;
 }

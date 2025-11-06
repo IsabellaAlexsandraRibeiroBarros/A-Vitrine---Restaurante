@@ -6,26 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
-    protected $fillable = [
-        'cliente_id', 'funcionario_id', 'mesa-id', 'total'
-    ];
- public function cliente()
-    {
-        return $this->belongsTo(Cliente::class);
-    }
+    protected $table = 'pedidos';
+    protected $fillable = ['nome_cliente', 'status', 'total'];
+    public $timestamps = false;
 
-    public function mesa()
+    public function itens()
     {
-        return $this->belongsTo(Mesa::class);
-    }
-
-    public function funcionario()
-    {
-        return $this->belongsTo(Funcionario::class);
-    }
-
-    public function pratos()
-    {
-        return $this->belongsToMany(Prato::class)->withPivot('quantidade');
+        return $this->hasMany(ItemPedido::class, 'id_pedido');
     }
 }

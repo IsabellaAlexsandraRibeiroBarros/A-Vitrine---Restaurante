@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    protected $fillable = ['id_cliente', 'nome', 'cpf', 'data_nasc', 'endereco', 'email', 'telefone', 'pontos'];
+    protected $table = 'clientes';
+    protected $primaryKey = 'id_cliente'; // 👈 ESTA LINHA É A CHAVE!
 
-     public function pedidos()
-    {
-        return $this->hasMany(Pedido::class);
-    }
+    protected $fillable = [
+        'id_cliente',
+        'nome',
+        'cpf',
+        'data_nasc',
+        'endereco',
+        'email',
+        'telefone',
+        'pontos'
+    ];
 }

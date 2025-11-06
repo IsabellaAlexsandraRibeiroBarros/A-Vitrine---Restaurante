@@ -4,13 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Funcionario extends Model
+class Estoque extends Model
 {
-    protected $table = 'funcionarios';
+    protected $table = 'estoque';
     protected $primaryKey = 'id';
     public $timestamps = false;
 
     protected $fillable = [
-        'nome', 'cargo', 'email', 'telefone'
+        'item',
+        'quantidade',
+        'unidade',
+        'valor_unitario',
+        'status'
     ];
 }
