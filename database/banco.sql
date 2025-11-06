@@ -51,19 +51,19 @@ CREATE TABLE ingredientes (
 CREATE TABLE mesas (
   id_mesa BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   numero INT(11) NOT NULL,
-  status ENUM('Livre', 'Reservada', 'Ocupada') NOT NULL DEFAULT 'Livre'
+  status ENUM('Livre', 'Reservada', 'Ocupada') NOT NULL DEFAULT 'Livre';
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Inserção das mesas
 INSERT INTO mesas (numero, status) VALUES
-(1, 'Reservada'),
+(1, 'Livre'),
 (2, 'Livre'),
 (3, 'Livre'),
 (4, 'Livre'),
-(5, 'Ocupada'),
+(5, 'Livre'),
 (6, 'Livre'),
 (7, 'Livre'),
-(8, 'Reservada'),
+(8, 'Livre'),
 (9, 'Livre'),
 (10, 'Livre'),
 (11, 'Livre'),
