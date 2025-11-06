@@ -1291,5 +1291,5 @@ select#status {
   .status-select:focus {
     outline: none;
     border-color: #d4af37;
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 8px rgba(0, 24, 101, 0.6);
   }

@@ -43,30 +43,33 @@
       </thead>
 
       <tbody>
-        @foreach ($pratos as $p)
-        <tr>
-          <td>{{ $p->id }}</td>
-          <td>{{ $p->nome }}</td>
-          <td>{{ $p->descricao }}</td>
-          <td>{{ number_format($p->valor, 2, ',', '.') }}</td>
-          <td>{{ $p->composicao }}</td>
+  @foreach ($pratos as $p)
+  <tr>
+    <td>{{ $p->id }}</td>
+    <td>{{ $p->nome }}</td>
+    <td>{{ $p->descricao }}</td>
+    <td>{{ number_format($p->valor, 2, ',', '.') }}</td>
+    <td>{{ $p->composicao }}</td>
 
-          <td>
-            <a href="{{ route('pratos.edit', $p->id) }}">
-              <button class="btn-editar">Editar</button>
-            </a>
-          </td>
+    <td>
+  <a href="{{ route('pratos.edit', ['id' => $p->id]) }}">
+    <button class="btn-editar">Editar</button>
+  </a>
+</td>
 
-          <td>
-            <form action="{{ route('pratos.destroy', $p->id) }}" method="POST">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn-excluir" onclick="return confirm('Deseja excluir este prato?')">Excluir</button>
-            </form>
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
+<td>
+  <form action="{{ route('pratos.destroy', ['id' => $p->id]) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn-excluir" onclick="return confirm('Deseja excluir este prato?')">
+      Excluir
+    </button>
+  </form>
+</td>
+
+  </tr>
+  @endforeach
+</tbody>
     </table>
   </section>
 

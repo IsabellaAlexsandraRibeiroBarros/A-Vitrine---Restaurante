@@ -30,7 +30,7 @@ Route::prefix('gerenciar')->group(function () {
 });
 
 
-Route::get('/pratos', [PratosController::class, 'index'])->name('pratos');
+
 Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
 Route::get('/mesas', [MesasController::class, 'index'])->name('mesas');
 Route::get('/clientes', [ClientesController::class, 'index'])->name('clientes');
@@ -50,6 +50,7 @@ Route::delete('/clientes/{id}', [ClientesController::class, 'destroy'])->name('c
 // ROTAS DE MESAS
 Route::get('/mesas', [MesasController::class, 'index'])->name('mesas.index');
 Route::put('/mesas/{id}', [MesasController::class, 'update'])->name('mesas.update');
+
 
 // GERENCIAMENTO DE PRATOS
 Route::get('/pratos', [PratosController::class, 'index'])->name('pratos.index');
